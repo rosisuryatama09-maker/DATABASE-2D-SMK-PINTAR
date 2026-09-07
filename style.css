@@ -1,0 +1,561 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@500;700;800;900&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Nunito", sans-serif;
+
+  background:
+    radial-gradient(
+      circle at top,
+      #173a57,
+      #07111d 60%
+    );
+
+  color: white;
+
+  min-height: 100vh;
+
+  padding: 15px;
+}
+
+.app {
+  max-width: 800px;
+  margin: auto;
+}
+
+
+/* HEADER */
+
+header {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  padding: 10px 5px 20px;
+}
+
+.logo {
+  font-size: 45px;
+
+  filter:
+    drop-shadow(
+      0 0 15px rgba(255,80,80,.5)
+    );
+}
+
+header div:nth-child(2) {
+  flex: 1;
+  margin-left: 12px;
+}
+
+header h1 {
+  font-size: 27px;
+  font-weight: 900;
+
+  background:
+    linear-gradient(
+      90deg,
+      #ffd43b,
+      #ff6b6b,
+      #f06595
+    );
+
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+header p {
+  color: #8ea4bb;
+  font-weight: 800;
+  letter-spacing: 3px;
+  font-size: 11px;
+}
+
+#soundBtn {
+  border: none;
+
+  background: #18283a;
+
+  color: white;
+
+  font-size: 20px;
+
+  width: 45px;
+  height: 45px;
+
+  border-radius: 12px;
+}
+
+
+/* STATS */
+
+.stats {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 10px;
+
+  margin-bottom: 15px;
+}
+
+.stat {
+  text-align: center;
+
+  padding: 12px 5px;
+
+  border-radius: 15px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #243b55,
+      #162434
+    );
+
+  border: 1px solid #35516e;
+}
+
+.stat span {
+  display: block;
+
+  color: #8da2b7;
+
+  font-size: 10px;
+
+  font-weight: 900;
+
+  letter-spacing: 1px;
+}
+
+.stat strong {
+  display: block;
+
+  margin-top: 5px;
+
+  font-size: 22px;
+
+  color: #ffd43b;
+}
+
+
+/* PROGRESS */
+
+.progress-box {
+  margin-bottom: 15px;
+}
+
+.progress-title {
+  display: flex;
+
+  justify-content: space-between;
+
+  color: #a8b9c9;
+
+  font-size: 12px;
+
+  margin-bottom: 6px;
+}
+
+.progress-bar {
+  height: 12px;
+
+  background: #152130;
+
+  border-radius: 20px;
+
+  overflow: hidden;
+
+  border: 1px solid #30445b;
+}
+
+#progressFill {
+  height: 100%;
+
+  width: 0%;
+
+  border-radius: 20px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #22c55e,
+      #facc15,
+      #f97316,
+      #ef4444
+    );
+
+  transition: width .3s;
+}
+
+
+/* GAME */
+
+.game-wrapper {
+  position: relative;
+
+  width: 100%;
+
+  border-radius: 22px;
+
+  overflow: hidden;
+
+  box-shadow:
+    0 20px 50px rgba(0,0,0,.45);
+
+  border: 3px solid #29445e;
+}
+
+canvas {
+  width: 100%;
+  display: block;
+
+  background:
+    linear-gradient(
+      #7fd0ee,
+      #d9f5ff
+    );
+
+  touch-action: none;
+}
+
+#message {
+  position: absolute;
+
+  top: 15px;
+
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  background: rgba(15,30,45,.7);
+
+  backdrop-filter: blur(8px);
+
+  padding: 8px 18px;
+
+  border-radius: 12px;
+
+  font-weight: 900;
+
+  color: white;
+
+  pointer-events: none;
+}
+
+
+/* FRUIT INFO */
+
+.fruit-info {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  justify-content: center;
+
+  gap: 8px;
+
+  margin: 15px 0;
+}
+
+.fruit-info span {
+  background: #172638;
+
+  border: 1px solid #2c465e;
+
+  padding: 7px 10px;
+
+  border-radius: 10px;
+
+  font-size: 11px;
+}
+
+
+/* CONTROLS */
+
+.controls {
+  display: flex;
+
+  justify-content: center;
+
+  gap: 15px;
+
+  margin: 15px 0 25px;
+}
+
+.controls button {
+  border: none;
+
+  color: white;
+
+  background:
+    linear-gradient(
+      145deg,
+      #2d4056,
+      #172331
+    );
+
+  min-width: 70px;
+
+  height: 55px;
+
+  border-radius: 17px;
+
+  font-size: 20px;
+
+  font-weight: 900;
+
+  box-shadow:
+    0 7px 15px rgba(0,0,0,.3);
+
+  touch-action: manipulation;
+}
+
+#jumpBtn {
+  min-width: 130px !important;
+
+  background:
+    linear-gradient(
+      135deg,
+      #f97316,
+      #ef4444
+    ) !important;
+}
+
+.controls button:active {
+  transform: scale(.92);
+}
+
+
+/* LEADERBOARD */
+
+.leaderboard {
+  background:
+    linear-gradient(
+      145deg,
+      #17283a,
+      #0e1825
+    );
+
+  border: 1px solid #2e4860;
+
+  border-radius: 20px;
+
+  padding: 20px;
+
+  margin-top: 20px;
+}
+
+.leaderboard h2 {
+  text-align: center;
+
+  margin-bottom: 15px;
+
+  font-size: 20px;
+}
+
+.save-score {
+  display: flex;
+
+  gap: 8px;
+}
+
+.save-score input {
+  flex: 1;
+
+  border: 1px solid #36526c;
+
+  background: #0c1622;
+
+  color: white;
+
+  border-radius: 10px;
+
+  padding: 12px;
+
+  outline: none;
+}
+
+.save-score button {
+  border: none;
+
+  padding: 0 12px;
+
+  border-radius: 10px;
+
+  font-weight: 900;
+
+  background: #ffd43b;
+
+  color: #172331;
+}
+
+.player-row {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  margin-top: 8px;
+
+  padding: 12px;
+
+  background: rgba(255,255,255,.04);
+
+  border-radius: 10px;
+}
+
+.player-name {
+  font-weight: 800;
+}
+
+.player-score {
+  color: #ffd43b;
+  font-weight: 900;
+}
+
+
+/* HOW TO */
+
+.how-to {
+  margin-top: 20px;
+
+  padding: 18px;
+
+  text-align: center;
+
+  border-radius: 18px;
+
+  background: #101b28;
+
+  color: #9fb0c1;
+}
+
+.how-to h2 {
+  color: white;
+  margin-bottom: 8px;
+}
+
+
+/* MODAL */
+
+.modal {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 100;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  background: rgba(0,0,0,.75);
+
+  backdrop-filter: blur(7px);
+
+  padding: 20px;
+}
+
+.hidden {
+  display: none;
+}
+
+.modal-card {
+  width: 100%;
+  max-width: 370px;
+
+  text-align: center;
+
+  padding: 30px;
+
+  border-radius: 25px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #263d54,
+      #101925
+    );
+
+  border: 1px solid #45627d;
+}
+
+.game-over-icon {
+  font-size: 60px;
+}
+
+.modal-card h2 {
+  font-size: 32px;
+}
+
+.modal-card p {
+  color: #a5b5c5;
+}
+
+#finalScore {
+  font-size: 55px;
+
+  color: #ffd43b;
+
+  font-weight: 900;
+
+  margin: 10px;
+}
+
+#restartBtn {
+  width: 100%;
+
+  margin-top: 20px;
+
+  padding: 15px;
+
+  border: none;
+
+  border-radius: 13px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #22c55e,
+      #16a34a
+    );
+
+  color: white;
+
+  font-weight: 900;
+
+  font-size: 16px;
+}
+
+
+@media(max-width: 500px) {
+
+  body {
+    padding: 8px;
+  }
+
+  .stat strong {
+    font-size: 17px;
+  }
+
+  .controls {
+    gap: 10px;
+  }
+
+  .controls button {
+    min-width: 60px;
+  }
+
+}
